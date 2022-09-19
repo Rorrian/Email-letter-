@@ -1,0 +1,49 @@
+* Не использовать Margin
+* Padding указывать для <td>
+* Шрифты подключаются через @import в блоке <style>
+* Для работы "старых приемов" вроде тега <center> нужно указать следующий DOCTYPE:
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+* Для работы условных комментариев для VML, Outlook нужно указать в <html> следующие атрибуты:
+     <html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:v="urn:schemas-microsoft-com:vml"
+        xmlns:o="urn:schemas-microsoft-com:office:office"
+        lang="ru">
+* Для нормального отображения письма при масштабе, отличном от 100%, необходимо указать в <head>:
+    <!--[if (gte mso 9)|(IE)]>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    <![endif]-->
+* Для <body> нужно сбрасывать Margin(важно для Outlook: с большой буквы): <body style="Margin:0;...">
+* Все <table> нужно также дополнительно помещать в фантомные таблицы для Outlook
+    <!--[if (gte mso 9)|(IE)]>
+        <table border="0" cellspacing="0" cellpadding="0" role="presentation">
+            <tr>
+                <td>
+    <![endif]-->
+
+    <table></table>
+
+    <!--[if (gte mso 9)|(IE)]>
+                </td>
+            </tr>
+        </table>
+    <![endif]-->
+* Иконки выгружать в 2x формате
+
+! Проверить валидность верстки с помощью https://validator.w3.org/
+! Протестировать отображение в разных почтовых сервисах через https://putsmail.com/tests/new
+! Протестировать отображение на мобильных устройствах подключив телефон по кабелю, через Chrome DevTools chrome://inspect/devices#devices
+! Оптимизировать картинки с помощью TinyPNG
+
+
+
+
+
+
+
+
+* В шаблоне есть пример подключения возможности смены тем светлая/темная
